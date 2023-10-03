@@ -1,0 +1,10 @@
+
+.number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 2em;
+  margin-top: 5px;
+}
