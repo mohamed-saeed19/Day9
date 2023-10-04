@@ -8,3 +8,24 @@
   font-size: 2em;
   margin-top: 5px;
 }
+body{
+  background: #1f1e1e;
+}
+.navbar{
+  background: #000 !important;
+  color: aliceblue !important;
+}
+
+.curser-pointer{
+  cursor: pointer;
+}
+.addFavourit{
+  color: aliceblue;
+  background: #473f3f;
+  width: 100%;
+  opacity: 0;
+}
+.movieFavourit:hover  .addFavourit{
+  opacity: 1;
+  cursor: pointer;
+}

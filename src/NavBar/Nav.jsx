@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({favourites}) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light ">
         <Link className="navbar-brand" to="/">
           Movies
         </Link>
@@ -21,15 +21,20 @@ const Nav = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav  mr-auto">
+          <ul className="navbar-nav  m-auto">
             <li className="nav-item active">
-              <Link className="nav-link" to="/">
+              <Link className="fs-4 nav-link" to="/">
                 Home
               </Link>
             </li>
-            <li className="nav-item active">
+            <li className="fs-4 nav-item active">
               <Link className="nav-link" to="tv">
                 TV
+              </Link>
+            </li>
+            <li className="fs-4 nav-item active">
+              <Link className="nav-link" to="favourites">
+              Favourites {favourites.length==0?"": favourites.length}
               </Link>
             </li>
           </ul>

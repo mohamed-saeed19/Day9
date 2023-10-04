@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Tv = () => {
+const Tv = ({addFavouritMovie}) => {
   let [movie, setMovie] = useState([]);
+  let [bg, setBg] = useState(false);
   let [pageNumber, setpageNumber] = useState(1);
   
   async function getMovie(num) {
@@ -24,6 +25,9 @@ const Tv = () => {
   function prevNum(num){
     setpageNumber(--pageNumber)
   }
+  function bgColorWarnning(){
+ setBg(!bg)
+  }
 
   return (
     <>
@@ -33,8 +37,8 @@ const Tv = () => {
           {
             <div className="row justify-content-center">
               {movie.map((movie, i) => (
-                <div className="col-md-2 position-relative  my-2" key={i}>
-                  <Link to={`/moviedetailscompleted/${movie.id}`}>
+                <div className="movieFavourit col-md-2 position-relative  my-2" key={i}>
+                  {/* <Link to={`/moviedetailscompleted/${movie.id}`}> */}
                     <img
                       src={
                         `https://image.tmdb.org/t/p/w500` + movie.poster_path
@@ -42,11 +46,13 @@ const Tv = () => {
                       className=" w-100"
                       alt=""
                     />
-                    <h6 className="py-2">{movie.original_title}</h6>
-                    <h6 className="position-absolute top-0 bg-info p-1 ">
-                      {movie.vote_count}
-                    </h6>
-                  </Link>
+                    
+                    <h6 className="py-2 text-white">{movie.original_title}</h6>
+                    <div className="position-absolute top-0  bg-transparent p-1 " onClick={bgColorWarnning}>
+                    <h6 className="addFavourit ms-2 p-2" onClick={()=>addFavouritMovie(movie)}>ADD FAVOURIT <i className="fa-solid fa-star fs-6 p-1 curser-pointer" style={{color: '#dad72f'}}></i></h6>   
+                    </div>
+                   
+                  {/* </Link> */}
                 </div>
               ))}
             </div>
