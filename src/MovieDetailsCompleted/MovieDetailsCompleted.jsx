@@ -1,24 +1,24 @@
-
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 const MovieDetailsCompleted = () => {
-    let {id} =useParams()
-    const[movieDetails,setMovieDetails] = useState({})
+  let { id } = useParams();
+  const [movieDetails, setMovieDetails] = useState({});
 
-            async function moviedetails(id , media_type){
-                  let {data} = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=f1aca93e54807386df3f6972a5c33b50&language=en-US`)
-             
-                  setMovieDetails(data)
-  
-                  }
-                 
-                  useEffect(()=>{
-                    moviedetails(id)
-                  },[])
+  async function moviedetails(id, media_type) {
+    let { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=f1aca93e54807386df3f6972a5c33b50&language=en-US`
+    );
+
+    setMovieDetails(data);
+  }
+
+  useEffect(() => {
+    moviedetails(id);
+  }, []);
   return (
     <div>
-      <Link to="/">
+      <Link to="/tv">
         {" "}
         <i className="my-4 prev fa-solid fa-arrow-right fa-rotate-180"></i>
       </Link>
@@ -40,10 +40,9 @@ const MovieDetailsCompleted = () => {
             <h1 className=" mb-3">{movieDetails.name}</h1>
             <h1 className=" mb-3">{movieDetails.original_title}</h1>
 
-            <p className="py-3 text-muted text-capitalize">
+            <p className="py-3  text-capitalize">
               {movieDetails.overview}
             </p>
-         
 
             <ul className="my-4">
               <li className="py-2">Popularity : {movieDetails.popularity}</li>
@@ -67,7 +66,6 @@ const MovieDetailsCompleted = () => {
                 )}{" "}
               </li>
             </ul>
-          
           </div>
         </div>
       ) : (

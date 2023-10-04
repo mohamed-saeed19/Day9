@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = ({favourites}) => {
+const Nav = ({ favourites }) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-light ">
@@ -21,7 +21,7 @@ const Nav = ({favourites}) => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav  m-auto">
+          <ul className="navbar-nav  ms-auto ">
             <li className="nav-item active">
               <Link className="fs-4 nav-link" to="/">
                 Home
@@ -32,9 +32,14 @@ const Nav = ({favourites}) => {
                 TV
               </Link>
             </li>
+            
             <li className="fs-4 nav-item active">
               <Link className="nav-link" to="favourites">
-              Favourites {favourites.length==0?"": favourites.length}
+                <i
+                  className="fa-solid fa-heart px-1 fs-3"
+                  style={{ color: "#ff0000" }}
+                ></i>
+                {favourites.length}
               </Link>
             </li>
           </ul>
